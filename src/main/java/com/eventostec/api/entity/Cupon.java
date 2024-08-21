@@ -3,7 +3,6 @@ package com.eventostec.api.entity;
 import java.util.Date;
 import java.util.UUID;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,7 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "CUPON")
+@Table(name = "cupon")
 @Entity
 @Getter
 @Setter
@@ -25,19 +24,12 @@ public class Cupon {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "ID")
 	private UUID id;
-	
-	@Column(name = "CODIGO")
 	private String codigo;
-	
-	@Column(name = "DESCONTO")
 	private Integer desconto;
-	
-	@Column(name = "VALIDO")
 	private Date valido;
 	
 	@ManyToOne
-	@JoinColumn(name = "EVENTO_ID")
+	@JoinColumn(name = "evento_id")
 	private Evento evento;
 }
